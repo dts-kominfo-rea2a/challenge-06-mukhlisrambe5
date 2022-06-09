@@ -33,14 +33,14 @@ const bacaData = (fnCallback)=>{
         },
         (err, isi2)=>{
           const data2 = JSON.parse(isi2)
-          messageArray.push(getSecondWorld(data2.message))
+          messageArray.push(getSecondWorld(data2[0].message))
           fs.readFile(file3, 
             {
               encoding: 'utf-8'
             },
             (err, isi3)=>{
               const data3 = JSON.parse(isi3)
-              messageArray.push(getSecondWorld(data3.message))
+              messageArray.push(getSecondWorld(data3[0].data.message))
 
               fnCallback(err, messageArray)
 
@@ -53,8 +53,8 @@ const bacaData = (fnCallback)=>{
 };
 
 const getSecondWorld = (sentence)=>{
-  const sentenceArray = sentence.split(" ")
-  return sentenceArray[0]
+  const arrSentence = sentence.split(" ")
+  return arrSentence[1];
 }
 
 
